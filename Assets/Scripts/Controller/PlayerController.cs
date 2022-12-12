@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerJump(){
         if(isJumping) return;
+        if(isClimbing) return;
         body.velocity = new Vector2(body.velocity.x, playerModel.jumpSpeed);
         SetIsJumping(true);
     }
