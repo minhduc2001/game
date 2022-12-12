@@ -12,10 +12,10 @@ public class Manage : MonoBehaviour
     public Button btnStartGame;
     public Button btnQuitGame;
     public Animator animator;
-
+    
     private void Awake()
     {
-        canvasSetting.gameObject.active = false;
+        canvasSetting.gameObject.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -36,7 +36,7 @@ public class Manage : MonoBehaviour
 
     void handleBtnSettingClick()
     {
-        canvasSetting.gameObject.active = true;
+        canvasSetting.gameObject.SetActive(true);
         btnSetting.interactable = false;
     }
 
@@ -50,6 +50,6 @@ public class Manage : MonoBehaviour
         animator.SetBool("Start", true);
         yield return new WaitForSeconds(1);
 
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(3);
     }
 }

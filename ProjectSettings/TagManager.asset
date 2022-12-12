@@ -17,6 +17,11 @@ TagManager:
   - level4
   - winner
   - ladder
+  - setting
+  - pause
+  - end
+  - keyEnd
+  - endClose
   layers:
   - Default
   - TransparentFX

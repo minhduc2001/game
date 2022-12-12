@@ -5,8 +5,13 @@ using UnityEngine.UI;
 
 public class CanvasController : MonoBehaviour
 {
-    private CanvasModel canvasModel;
-    
+    private static CanvasModel canvasModel;
+
+    public CanvasModel GetCanvasModel()
+    {
+        return canvasModel;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
