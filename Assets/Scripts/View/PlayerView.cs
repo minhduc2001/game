@@ -72,8 +72,6 @@ public class PlayerView : MonoBehaviour
             if(canvasController.IncreaseHeart()) playerController.DestroyItem(col);
         }
         if(col.gameObject.CompareTag("key")){
-            endGameController.updateCanvasModel(col.gameObject.name);
-            endGameController.showUiEnd();
             canvasController.CollectKey(col.gameObject.name);
             playerController.DestroyItem(col);
         }
