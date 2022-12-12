@@ -10,6 +10,7 @@ public class PlayerView : MonoBehaviour
     private SpringController springController;
     private LaserController laserController;
     private LockController lockController;
+    private EndGameController endGameController;
 
     // private AssetBundle myLoadedAssetBundle;
     // private string[] scenePaths;
@@ -22,6 +23,7 @@ public class PlayerView : MonoBehaviour
         springController = GameObject.Find("SpringController").GetComponent<SpringController>();
         laserController = GameObject.Find("LaserController").GetComponent<LaserController>();
         lockController = GameObject.Find("LockController").GetComponent<LockController>();
+        endGameController = GameObject.Find("EndGameController").GetComponent<EndGameController>();
 
         // myLoadedAssetBundle = AssetBundle.LoadFromFile("Assets/AssetBundles/scenes");
         // scenePaths = myLoadedAssetBundle.GetAllScenePaths();
