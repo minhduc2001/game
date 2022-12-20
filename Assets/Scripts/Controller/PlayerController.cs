@@ -24,6 +24,10 @@ public class PlayerController : MonoBehaviour
         body = GameObject.Find("Player").GetComponent<Rigidbody2D>();
         anim = GameObject.Find("Player").GetComponent<Animator>();
         canvasController = GameObject.Find("CanvasController").GetComponent<CanvasController>();
+        if(SaveController.LoadSaveGame() != null){
+            float[] pos = SaveController.LoadSaveGame().getPosition();
+            body.position = new Vector3(pos[0], pos[1], pos[2]);
+        }
     }
 
     // Update is called once per frame
@@ -106,6 +110,7 @@ public class PlayerController : MonoBehaviour
             cntInvincible = 0f;
             t.position = rebornPlace;
             canvasController.DecreaseHeart();
+            GameObject.Find("AudioManager").GetComponent<SoundController>().Play("Death");
         }
     }
 

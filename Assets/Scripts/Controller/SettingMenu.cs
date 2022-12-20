@@ -12,6 +12,8 @@ public class SettingMenu : MonoBehaviour
     public Button btnResume;
     const string mixer_sfx = "SFXMixer";
     const string mixer_music = "MusicMixer";
+
+    private PauseController pauseController;
     
     private void Awake()
     {
@@ -35,6 +37,9 @@ public class SettingMenu : MonoBehaviour
         btnClose.onClick.AddListener(closeSettingMenu);
         btnQuitSetting.onClick.AddListener(closeSettingMenu);
         btnResume.onClick.AddListener(closeSettingMenu);
+    
+        pauseController = GameObject.Find("PauseController").GetComponent<PauseController>();
+        Debug.Log("setting");
     }
 
     public void setSound(float sound)
@@ -59,5 +64,7 @@ public class SettingMenu : MonoBehaviour
     public void closeSettingMenu()
     {
         gameObject.SetActive(false);
+        Time.timeScale = 1f;
+        pauseController.SetGameIsPaused(false);
     }
 }

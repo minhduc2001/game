@@ -9,13 +9,13 @@ public class CanvasModel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inventory.Add("keyBlue", 0);
-        inventory.Add("keyRed", 0);
-        inventory.Add("keyYellow", 0);
-        inventory.Add("keyGreen", 0);
-        inventory.Add("coinGold", 0);
-        inventory.Add("gemBlue", 0);
-        inventory.Add("heart", 3);
+        // inventory.Add("keyBlue", 0);
+        // inventory.Add("keyRed", 0);
+        // inventory.Add("keyYellow", 0);
+        // inventory.Add("keyGreen", 0);
+        // inventory.Add("coinGold", 0);
+        // inventory.Add("gemBlue", 0);
+        // inventory.Add("heart", 3);
     }
 
     // Update is called once per frame
@@ -26,5 +26,13 @@ public class CanvasModel : MonoBehaviour
 
     public Dictionary<string, int> GetInventory(){ return inventory;}
 
-    public void SetInventory(Dictionary<string, int> newInventory){ inventory = newInventory;}
+    public void SetInventory(Dictionary<string, int> newInventory){ 
+        inventory = newInventory;
+        // foreach(KeyValuePair<string, int> entry in inventory)
+        // {
+        //     // do something with entry.Value or entry.Key
+        //     Debug.Log(entry.Value);
+        //     Debug.Log(entry.Key);
+        // }
+    }
 }

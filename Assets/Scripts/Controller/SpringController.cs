@@ -23,6 +23,7 @@ public class SpringController : MonoBehaviour
         if(playerBody.position.y - col.gameObject.transform.position.y > 0.5f){
             playerBody.velocity = new Vector2(playerBody.velocity.x, springModel.speed);
             Debug.Log("add force");
+            GameObject.Find("AudioManager").GetComponent<SoundController>().Play("Spring");
             anim = col.gameObject.GetComponent<Animator>();
             anim.SetBool("isActive", true);
             Invoke("SetSpringDown", 1);

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1688228760811334195}
   m_Layer: 0
   m_Name: fishPink
-  m_TagString: spike
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 6210548293285138510}
   m_Layer: 0
   m_Name: FishPink
-  m_TagString: spike
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

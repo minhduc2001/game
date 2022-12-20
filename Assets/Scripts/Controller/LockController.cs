@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LockController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class LockController : MonoBehaviour
     public GameObject alien;
     public GameObject player, lockview;
     public GameObject invicibleWall;
+
+    public Animator animator;
 
     private CanvasController canvasController;
     private CanvasModel canvasModel;
@@ -89,11 +92,36 @@ public class LockController : MonoBehaviour
         dialogTexts[3].GetComponent<Text>().enabled = false;
         ufo.GetComponent<Animator>().enabled = true;
         alien.GetComponent<Animator>().SetBool("escaping", true);
-        Invoke("PlayerOn", 6f);
+        if(SceneManager.GetActiveScene().name == "level4"){
+            Invoke("UFOTakesPlayer", 2.5f);
+            Invoke("ChangeToTheEndScene", 6f);
+        } 
+        else Invoke("PlayerOn", 6f);
     }
 
     private void PlayerOn(){
         player.GetComponent<PlayerView>().enabled = true;
         invicibleWall.GetComponent<BoxCollider2D>().enabled = false;
+    }
+
+    private void UFOTakesPlayer(){
+        GameObject.Find("CameraController").GetComponent<CameraController>().enabled = false;
+        player.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+        player.GetComponent<Rigidbody2D>().gravityScale = 0f;
+        player.transform.SetParent(alien.transform);
+        player.transform.localPosition = new Vector3(1, 0, 0);
+        
+    }
+
+    private void ChangeToTheEndScene(){
+        StartCoroutine(loadTheEndScene());
+    }
+
+    IEnumerator loadTheEndScene()
+    {
+        animator.SetBool("Start", true);
+        yield return new WaitForSeconds(1);
+        GameObject.Find("EndGameController").GetComponent<EndGameController>().resetPlayerDotFun();
+        SceneManager.LoadScene("TheEnd", LoadSceneMode.Single);
     }
 }

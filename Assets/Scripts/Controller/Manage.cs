@@ -50,6 +50,13 @@ public class Manage : MonoBehaviour
         animator.SetBool("Start", true);
         yield return new WaitForSeconds(1);
 
-        SceneManager.LoadScene(3);
+        // SceneManager.LoadScene(0);
+        if (SaveController.LoadSaveGame() != null)
+        {
+            SceneManager.LoadScene(SaveController.LoadSaveGame().getLevel());
+        } else
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }
